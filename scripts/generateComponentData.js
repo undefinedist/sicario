@@ -1,4 +1,4 @@
-var fs = 'fs'
+var fs = require('fs')
 var path = require('path')
 var chalk = require('chalk')
 var parse = require('react-docgen').parse
