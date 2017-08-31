@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 
 /** my super lame compoenent */
 function HelloWorld({message}) {
-  return (
-    <div>
-      Hello {message}
-    </div>
-  )
+  return <div>Hello {message}</div>
 }
 
 HelloWorld.propTypes = {
