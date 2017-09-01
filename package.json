@@ -1,5 +1,5 @@
 {
-  "name": "sicario",
+  "name": "sicario-build-template",
   "version": "0.1.0",
   "main": "./lib/index.js",
   "engines": {
@@ -18,7 +18,7 @@
     "react-component",
     "toolkit"
   ],
-  "private": false,
+  "private": true,
   "dependencies": {
     "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
@@ -74,12 +74,13 @@
     "test": "node scripts/test.js --env=jsdom",
     "prebuild:lib": "rimraf lib",
     "build:css": "cpx \"./src/components/**/*.css\" ./lib",
-    "build:lib": "yarn build:commonjs && yarn build:css",
+    "build:lib":
+      "npm-run-all --parallel build:commonjs build:css build:copy-files",
+    "build:copy-files": "node scripts/copyBuildFiles.js",
     "predeploy:docs": "yarn build:docs",
     "deploy:docs": "gh-pages -d build",
     "build:commonjs":
-      "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib --ignore spec.js",
-    "prepublish": "yarn build:lib"
+      "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib --ignore spec.js"
   },
   "jest": {
     "collectCoverageFrom": ["src/**/*.{js,jsx}"],
