@@ -1,8 +1,16 @@
 # Reusable component for undefinedist
 base on pluralsight tutorial and styled-components with rebass
 
+## Install
+```
+yarn install sicario
+```
+
+# Docs
+[Component documation](https://undefinedist.github.io/sicario/)
 
 ## generateComponentData.js
+
 ### fs and path
 node에서 딸려 오는거 file system과 path에 사용
 
