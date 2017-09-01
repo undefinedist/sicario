@@ -1,7 +1,24 @@
 {
   "name": "sicario",
   "version": "0.1.0",
-  "private": true,
+  "main": "./lib/index.js",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "author": {
+    "name": "Eung Jin Lee",
+    "email": "undefinedist@gmail.com",
+    "url": "https://undefinedist.github.io/sicario/"
+  },
+  "files": ["lib"],
+  "keywords": [
+    "components",
+    "undefinedist",
+    "react",
+    "react-component",
+    "toolkit"
+  ],
+  "private": false,
   "dependencies": {
     "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
@@ -55,8 +72,14 @@
     "gen:docs-watch": "yarn gen:docs -- --watch",
     "build:docs": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
+    "prebuild:lib": "rimraf lib",
+    "build:css": "cpx \"./src/components/**/*.css\" ./lib",
+    "build:lib": "yarn build:commonjs && yarn build:css",
     "predeploy:docs": "yarn build:docs",
-    "deploy:docs": "gh-pages -d build"
+    "deploy:docs": "gh-pages -d build",
+    "build:commonjs":
+      "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib --ignore spec.js",
+    "prepublish": "yarn build:lib"
   },
   "jest": {
     "collectCoverageFrom": ["src/**/*.{js,jsx}"],
@@ -79,7 +102,15 @@
     "moduleFileExtensions": ["web.js", "js", "json", "web.jsx", "jsx", "node"]
   },
   "babel": {
-    "presets": ["react-app"]
+    "presets": [
+      [
+        "env",
+        {
+          "modules": "commonjs"
+        }
+      ],
+      "react-app"
+    ]
   },
   "eslintConfig": {
     "plugins": ["prettier"],
@@ -90,7 +121,10 @@
     "semi": false
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "chokidar": "^1.7.0",
+    "cpx": "^1.5.0",
+    "cross-env": "^5.0.5",
     "enzyme": "^2.9.1",
     "gh-pages": "^1.0.0",
     "npm-run-all": "^4.1.1",
@@ -98,6 +132,7 @@
     "prop-types": "^15.5.10",
     "react-addons-test-utils": "^15.6.0",
     "react-docgen": "^2.17.0",
-    "react-test-renderer": "^15.6.1"
+    "react-test-renderer": "^15.6.1",
+    "rimraf": "^2.6.1"
   }
 }
