@@ -30,9 +30,12 @@ const getLocation = messageLoc => {
 }
 
 /** Hero */
-function Hero({backgroundImage, message, messageLoc, messageSizes}) {
+function Hero({backgroundImage, message, messageLoc, messageSizes, px}) {
   return (
-    <Banner style={getLocation(messageLoc)} backgroundImage={backgroundImage}>
+    <Banner
+      style={getLocation(messageLoc)}
+      backgroundImage={backgroundImage}
+      px={px}>
       <Heading f={messageSizes}>{message}</Heading>
     </Banner>
   )
@@ -47,12 +50,15 @@ Hero.propTypes = {
   messageLoc: PropTypes.string,
   /** message size in array */
   messageSizes: PropTypes.array,
+  /** padding x axis in array */
+  px: PropTypes.array,
 }
 
 Hero.defaultProps = {
   message: 'world',
   messageLoc: 'center',
   messageSizes: [4, 5, 6, 7],
+  px: [1, 3, 4, 4],
 }
 
 export default Hero
