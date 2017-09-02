@@ -33,7 +33,10 @@ const getLocation = contentLoc => {
 /** Hero */
 function Hero({backgroundImage, contentPx, contentLoc, titleSizes, title, textSizes, text}) {
   return (
-    <Banner style={getLocation(contentLoc)} backgroundImage={backgroundImage} px={contentPx}>
+    <Banner
+      style={{...getLocation(contentLoc), minHeight: '100vh'}}
+      backgroundImage={backgroundImage}
+      px={contentPx}>
       <Heading f={titleSizes}>{title}</Heading>
       <MultiLineText multiLineText={text} f={textSizes} />
     </Banner>
