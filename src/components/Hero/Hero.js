@@ -31,20 +31,9 @@ const getLocation = contentLoc => {
 }
 
 /** Hero */
-function Hero({
-  backgroundImage,
-  contentPx,
-  contentLoc,
-  titleSizes,
-  title,
-  textSizes,
-  text,
-}) {
+function Hero({backgroundImage, contentPx, contentLoc, titleSizes, title, textSizes, text}) {
   return (
-    <Banner
-      style={getLocation(contentLoc)}
-      backgroundImage={backgroundImage}
-      px={contentPx}>
+    <Banner style={getLocation(contentLoc)} backgroundImage={backgroundImage} px={contentPx}>
       <Heading f={titleSizes}>{title}</Heading>
       <MultiLineText multiLineText={text} f={textSizes} />
     </Banner>
@@ -73,6 +62,7 @@ Hero.propTypes = {
 }
 
 Hero.defaultProps = {
+  text: '',
   contentLoc: 'center',
   titleSizes: [4, 5, 6, 7],
   textSizes: [2, 2, 3, 3],

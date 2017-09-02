@@ -17,7 +17,7 @@ export default class ExampleFixedHeaderWithCustom extends React.Component {
           children="Toggle Fixed"
         />
         {this.state.header && (
-          <Header bg="red" logoPx={[3, 4, 5]} logoPy={[4, 4, 4]} />
+          <Header bg="red" btn={{...Header.defaultProps.btn, btnColor: 'blue'}} />
         )}
       </div>
     )
