@@ -5,8 +5,9 @@ import Hero from 'sicario/Hero'
 export default function ExampleLeftHero() {
   return (
     <Hero
-      message="hello hero"
-      messageLoc="left"
+      title="hello title"
+      text={'hello\ntext'}
+      contentLoc="left"
       backgroundImage="http://via.placeholder.com/1080x900"
     />
   )

@@ -1,2 +1,5 @@
 export {default as Header} from './Header'
 export {default as HelloWorld} from './HelloWorld'
+export {default as Hero} from './Hero'
+export {default as MultiLineText} from './MultiLineText'
+export {default as Logo} from './Logo'

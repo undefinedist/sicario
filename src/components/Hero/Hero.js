@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 //import styled from 'styled-components'
 import {Banner, Heading} from 'rebass'
+import MultiLineText from '../MultiLineText'
 
 /* styled-component extending is now working
 const ExtenedBanner = styled(Banner).attrs({
@@ -15,13 +16,13 @@ const ExtenedBanner = styled(Banner).attrs({
 `
 */
 
-const getLocation = messageLoc => {
+const getLocation = contentLoc => {
   let style = {}
-  if (messageLoc === 'left') {
+  if (contentLoc === 'left') {
     style = {
       alignItems: 'flex-start',
     }
-  } else if (messageLoc === 'right') {
+  } else if (contentLoc === 'right') {
     style = {
       alignItems: 'flex-end',
     }
@@ -30,13 +31,22 @@ const getLocation = messageLoc => {
 }
 
 /** Hero */
-function Hero({backgroundImage, message, messageLoc, messageSizes, px}) {
+function Hero({
+  backgroundImage,
+  contentPx,
+  contentLoc,
+  titleSizes,
+  title,
+  textSizes,
+  text,
+}) {
   return (
     <Banner
-      style={getLocation(messageLoc)}
+      style={getLocation(contentLoc)}
       backgroundImage={backgroundImage}
-      px={px}>
-      <Heading f={messageSizes}>{message}</Heading>
+      px={contentPx}>
+      <Heading f={titleSizes}>{title}</Heading>
+      <MultiLineText multiLineText={text} f={textSizes} />
     </Banner>
   )
 }
@@ -44,21 +54,29 @@ function Hero({backgroundImage, message, messageLoc, messageSizes, px}) {
 Hero.propTypes = {
   /** Background Image */
   backgroundImage: PropTypes.string,
-  /** message */
-  message: PropTypes.string,
-  /** message location */
-  messageLoc: PropTypes.string,
-  /** message size in array */
-  messageSizes: PropTypes.array,
+
   /** padding x axis in array */
-  px: PropTypes.array,
+  contentPx: PropTypes.array,
+
+  /** content location */
+  contentLoc: PropTypes.string,
+
+  /** title size in array */
+  titleSizes: PropTypes.array,
+  /** title */
+  title: PropTypes.string,
+
+  /** text size in array */
+  textSizes: PropTypes.array,
+  /** text */
+  text: PropTypes.string,
 }
 
 Hero.defaultProps = {
-  message: 'world',
-  messageLoc: 'center',
-  messageSizes: [4, 5, 6, 7],
-  px: [1, 3, 4, 4],
+  contentLoc: 'center',
+  titleSizes: [4, 5, 6, 7],
+  textSizes: [2, 2, 3, 3],
+  contentPx: [1, 3, 4, 4],
 }
 
 export default Hero

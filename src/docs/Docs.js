@@ -1,4 +1,5 @@
 import React from 'react'
+import {Provider} from 'rebass'
 import Navigation from './Navigation'
 import ComponentPage from './ComponentPage'
 import componentData from '../../config/componentData'
@@ -25,11 +26,25 @@ export default class Docs extends React.Component {
 
     return (
       <div>
-        <Navigation
-          components={componentData.map(component => component.name)}
-        />
-        <ComponentPage component={component} />
+        <Provider theme={theme}>
+          <Navigation components={componentData.map(component => component.name)} />
+          <ComponentPage component={component} />
+        </Provider>
       </div>
     )
   }
+}
+
+const theme = {
+  breakpoints: [32, 48, 64],
+  space: [0, 6, 12, 18, 24, 30, 36, 42, 48, 54, 60],
+  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72, 96],
+  weights: [400, 700],
+  colors: {
+    black: '#000',
+    white: '#fff',
+  },
+  radius: 4,
+  font: '-apple-system, BlinkMacSystemFont, sans-serif',
+  monospace: '"SF Mono", "Roboto Mono", Menlo, monospace',
 }
