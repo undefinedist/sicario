@@ -26,7 +26,7 @@ class Header extends React.Component {
   }
   render() {
     const {
-      btn: {btnText, btnColor, btnBg, btnPx, btnPy},
+      btn: {btnFontSize, btnText, btnColor, btnBg, btnPx, btnPy},
       logo: {logoUrl, logoPx, logoPy},
     } = this.props
     return (
@@ -36,7 +36,7 @@ class Header extends React.Component {
             <Logo src={logoUrl} />
           </Box>
           <Box px={btnPx} py={btnPy}>
-            <ButtonCircle px={5} f={2} color={btnColor} bg={btnBg}>
+            <ButtonCircle px={5} f={btnFontSize} color={btnColor} bg={btnBg}>
               {btnText}
             </ButtonCircle>
           </Box>
@@ -52,6 +52,9 @@ Header.propTypes = {
 
   /** button */
   btn: PropTypes.shape({
+    /** button font size */
+    btnFontSize: PropTypes.number,
+
     /** button text */
     btnText: PropTypes.string,
 
@@ -82,6 +85,7 @@ Header.propTypes = {
 Header.defaultProps = {
   bg: '',
   btn: {
+    btnFontSize: 2,
     btnText: '예약하기',
     btnColor: 'white',
     btnBg: 'green',
