@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 //import styled from 'styled-components'
 import {Banner, Heading} from 'rebass'
 import MultiLineText from '../MultiLineText'
-import Color from 'color'
 
 /* styled-component extending is now working
 const ExtenedBanner = styled(Banner).attrs({
@@ -31,44 +30,17 @@ const getLocation = contentLoc => {
   return style
 }
 
-const canUseDOM = () => {
-  !!(typeof window !== 'undefined' && window.document && window.document.createElement)
-}
-
 /** Hero */
-class Hero extends React.Component {
-  state = {
-    backgroundOpacity: 0,
-  }
-
-  componentWillMount() {
-    if (canUseDOM()) {
-      window.addEventListener('scroll', () => {
-        const heroHeight = document.getElementById('hero').clientHeight - 80
-        const t = this.props.theme
-        if (this.header) {
-          this.header.style.background = Color(t.colors[t.layout.gnbBackgroundColor])
-            .alpha(Math.min((window.scrollY - heroHeight / 2) / heroHeight * 2, 1))
-            .string()
-        }
-      })
-    }
-  }
-
-  render() {
-    const {backgroundImage, contentPx, contentLoc, titleSizes, title, textSizes, text} = this.props
-    return (
-      <header id="hero">
-        <Banner
-          style={{...getLocation(contentLoc), minHeight: '100vh'}}
-          backgroundImage={backgroundImage}
-          px={contentPx}>
-          <Heading f={titleSizes}>{title}</Heading>
-          <MultiLineText multiLineText={text} f={textSizes} />
-        </Banner>
-      </header>
-    )
-  }
+function Hero({backgroundImage, contentPx, contentLoc, titleSizes, title, textSizes, text}) {
+  return (
+    <Banner
+      style={{...getLocation(contentLoc), minHeight: '100vh'}}
+      backgroundImage={backgroundImage}
+      px={contentPx}>
+      <Heading f={titleSizes}>{title}</Heading>
+      <MultiLineText multiLineText={text} f={textSizes} />
+    </Banner>
+  )
 }
 
 Hero.propTypes = {

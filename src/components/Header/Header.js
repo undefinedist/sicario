@@ -2,27 +2,46 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {Fixed, Flex, Box, ButtonCircle} from 'rebass'
 import Logo from '../Logo'
+import Color from 'color'
 
 /** Fixed Header Component */
-function Header({
-  bg,
-  btn: {btnText, btnColor, btnBg, btnPx, btnPy},
-  logo: {logoUrl, logoPx, logoPy},
-}) {
-  return (
-    <Fixed bg={bg} z={100} left top right>
-      <Flex justify="space-between" align="center">
-        <Box px={logoPx} py={logoPy}>
-          <Logo src={logoUrl} />
-        </Box>
-        <Box px={btnPx} py={btnPy}>
-          <ButtonCircle px={5} f={2} color={btnColor} bg={btnBg}>
-            {btnText}
-          </ButtonCircle>
-        </Box>
-      </Flex>
-    </Fixed>
-  )
+class Header extends React.Component {
+  state = {
+    headerBg: '',
+    count: 0,
+  }
+  handleBgColor = () => {
+    const windowHeight = window.innerHeight - 80
+    let headerBg = Color(this.props.bg)
+      .alpha(window.scrollY / windowHeight)
+      .string()
+    this.setState({headerBg: headerBg})
+  }
+  componentWillMount() {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', this.handleBgColor)
+    }
+  }
+  render() {
+    const {
+      btn: {btnText, btnColor, btnBg, btnPx, btnPy},
+      logo: {logoUrl, logoPx, logoPy},
+    } = this.props
+    return (
+      <Fixed bg={this.state.headerBg} z={100} left top right>
+        <Flex justify="space-between" align="center">
+          <Box px={logoPx} py={logoPy}>
+            <Logo src={logoUrl} />
+          </Box>
+          <Box px={btnPx} py={btnPy}>
+            <ButtonCircle px={5} f={2} color={btnColor} bg={btnBg}>
+              {btnText}
+            </ButtonCircle>
+          </Box>
+        </Flex>
+      </Fixed>
+    )
+  }
 }
 
 Header.propTypes = {
