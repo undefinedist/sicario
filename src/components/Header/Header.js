@@ -11,11 +11,13 @@ class Header extends React.Component {
     count: 0,
   }
   handleBgColor = () => {
-    const windowHeight = window.innerHeight - 80
-    let headerBg = Color(this.props.bg)
-      .alpha(window.scrollY / windowHeight)
-      .string()
-    this.setState({headerBg: headerBg})
+    if (this.props.bg !== '') {
+      const windowHeight = window.innerHeight - 80
+      let headerBg = Color(this.props.bg)
+        .alpha(window.scrollY / windowHeight)
+        .string()
+      this.setState({headerBg: headerBg})
+    }
   }
   componentWillMount() {
     if (typeof window !== 'undefined') {
@@ -78,7 +80,7 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  bg: 'white',
+  bg: '',
   btn: {
     btnText: '예약하기',
     btnColor: 'white',
