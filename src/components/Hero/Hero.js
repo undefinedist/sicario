@@ -31,14 +31,20 @@ const getLocation = contentLoc => {
 }
 
 /** Hero */
-function Hero({backgroundImage, contentPx, contentLoc, titleSizes, title, textSizes, text}) {
+function Hero({
+  backgroundImage,
+  contentPx,
+  contentLoc,
+  title: {titleSizes, titleText},
+  description: {descriptionSizes, descriptionText},
+}) {
   return (
     <Banner
       style={{...getLocation(contentLoc), minHeight: '100vh'}}
       backgroundImage={backgroundImage}
       px={contentPx}>
-      <Heading f={titleSizes}>{title}</Heading>
-      <MultiLineText multiLineText={text} f={textSizes} />
+      <Heading f={titleSizes}>{titleText}</Heading>
+      <MultiLineText f={descriptionSizes} multiLineText={descriptionText} />
     </Banner>
   )
 }
@@ -53,23 +59,34 @@ Hero.propTypes = {
   /** content location */
   contentLoc: PropTypes.string,
 
-  /** title size in array */
-  titleSizes: PropTypes.array,
-  /** title */
-  title: PropTypes.string,
+  /** Title */
+  title: PropTypes.shape({
+    /** title size in array */
+    titleSizes: PropTypes.array,
+    /** text of title */
+    titleText: PropTypes.string,
+  }),
 
-  /** text size in array */
-  textSizes: PropTypes.array,
-  /** text */
-  text: PropTypes.string,
+  /** Description */
+  description: PropTypes.shape({
+    /** text size in array */
+    descriptionSizes: PropTypes.array,
+    /** text of description */
+    descriptionText: PropTypes.string,
+  }),
 }
 
 Hero.defaultProps = {
-  text: '',
   contentLoc: 'center',
-  titleSizes: [4, 5, 6, 7],
-  textSizes: [2, 2, 3, 3],
   contentPx: [1, 3, 4, 4],
+  title: {
+    titleSizes: [4, 5, 6, 7],
+    titleText: 'hello',
+  },
+  description: {
+    descriptionSizes: [2, 2, 3, 3],
+    descriptionText: 'world',
+  },
 }
 
 export default Hero
