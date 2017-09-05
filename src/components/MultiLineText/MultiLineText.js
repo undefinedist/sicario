@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {Text} from 'rebass'
 
 /** wrapper for rebass Text component for multi line */
-const MultiLineText = ({multiLineText, keyPrefix, pb, bold, ...rest}) => {
+const MultiLineText = ({multiLineText, keyPrefix, my, pb, bold, ...rest}) => {
   const splittedTexts = multiLineText.split(/\r\n|\n|\r/)
   const numOfTexts = splittedTexts.length
   const fontWeight = bold === 'bold' ? 700 : bold === 'thin' ? 200 : 400
@@ -15,6 +15,7 @@ const MultiLineText = ({multiLineText, keyPrefix, pb, bold, ...rest}) => {
             style={{lineHeight: 'normal', fontWeight}}
             {...rest}
             key={`${keyPrefix}-${index}`}
+            my={my ? my : 0}
             pb={numOfTexts === index + 1 ? pb : null}>
             {text}
           </Text>
@@ -27,6 +28,7 @@ const MultiLineText = ({multiLineText, keyPrefix, pb, bold, ...rest}) => {
 MultiLineText.propTypes = {
   multiLineText: PropTypes.string,
   keyPrefix: PropTypes.string,
+  my: PropTypes.array,
   pb: PropTypes.array,
 }
 
