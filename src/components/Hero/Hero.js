@@ -54,7 +54,7 @@ function Hero({
         f={titleSizes}
         multiLineText={titleText}
         color={titleColor}
-        py={tiltePy}
+        py={titlePy}
       />
       <MultiLineText
         bold={descriptionBold}
