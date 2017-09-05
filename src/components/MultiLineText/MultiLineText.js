@@ -7,7 +7,7 @@ const MultiLineText = ({multiLineText, keyPrefix, ...rest}) => {
   return (
     <div>
       {multiLineText.split(/\r\n|\n|\r/).map((text, index) => (
-        <Text {...rest} key={`${keyPrefix}-${index}`}>
+        <Text style={{lineHeight: 'normal'}} {...rest} key={`${keyPrefix}-${index}`}>
           {text}
         </Text>
       ))}
