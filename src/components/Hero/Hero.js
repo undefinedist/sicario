@@ -35,16 +35,20 @@ function Hero({
   backgroundImage,
   contentPx,
   contentLoc,
-  title: {titleSizes, titleText},
-  description: {descriptionSizes, descriptionText},
+  title: {titleSizes, titleText, titleColor},
+  description: {descriptionSizes, descriptionText, descriptionColor},
 }) {
   return (
     <Banner
       style={{...getLocation(contentLoc), minHeight: '100vh'}}
       backgroundImage={backgroundImage}
       px={contentPx}>
-      <MultiLineText f={titleSizes} multiLineText={titleText} />
-      <MultiLineText f={descriptionSizes} multiLineText={descriptionText} />
+      <MultiLineText f={titleSizes} multiLineText={titleText} color={titleColor} />
+      <MultiLineText
+        f={descriptionSizes}
+        multiLineText={descriptionText}
+        color={descriptionColor}
+      />
     </Banner>
   )
 }
@@ -65,6 +69,8 @@ Hero.propTypes = {
     titleSizes: PropTypes.array,
     /** text of title */
     titleText: PropTypes.string,
+    /** color of title */
+    titleColor: PropTypes.string,
   }),
 
   /** Description */
@@ -73,6 +79,8 @@ Hero.propTypes = {
     descriptionSizes: PropTypes.array,
     /** text of description */
     descriptionText: PropTypes.string,
+    /** color of description */
+    descriptionColor: PropTypes.string,
   }),
 }
 
@@ -82,10 +90,12 @@ Hero.defaultProps = {
   title: {
     titleSizes: [4, 5, 6, 7],
     titleText: 'hello',
+    tilteColor: 'black',
   },
   description: {
     descriptionSizes: [2, 2, 3, 3],
     descriptionText: 'world',
+    descriptionColor: 'black',
   },
 }
 
