@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 //import styled from 'styled-components'
-import {Banner, Heading} from 'rebass'
+import {Banner} from 'rebass'
 import MultiLineText from '../MultiLineText'
 
 /* styled-component extending is now working
@@ -43,7 +43,7 @@ function Hero({
       style={{...getLocation(contentLoc), minHeight: '100vh'}}
       backgroundImage={backgroundImage}
       px={contentPx}>
-      <Heading f={titleSizes}>{titleText}</Heading>
+      <MultiLineText f={titleSizes} multiLineText={titleText} />
       <MultiLineText f={descriptionSizes} multiLineText={descriptionText} />
     </Banner>
   )
