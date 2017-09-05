@@ -33,12 +33,12 @@ const getLocation = contentLoc => {
 /** Hero */
 function Hero({
   backgroundImage,
-  contentPx,
   contentLoc,
+  contentPx,
   title: {titleSizes, titleText, titleColor, titleBold, titlePb},
   description: {
-    descriptionSizes,
     descriptionText,
+    descriptionSizes,
     descriptionColor,
     descriptionBold,
     descriptionPb,
@@ -46,21 +46,21 @@ function Hero({
 }) {
   return (
     <Banner
-      style={{...getLocation(contentLoc), minHeight: '100vh'}}
       backgroundImage={backgroundImage}
+      style={{...getLocation(contentLoc), minHeight: '100vh'}}
       px={contentPx}>
       <MultiLineText
-        bold={titleBold}
-        f={titleSizes}
         multiLineText={titleText}
+        f={titleSizes}
         color={titleColor}
+        bold={titleBold}
         pb={titlePb}
       />
       <MultiLineText
-        bold={descriptionBold}
-        f={descriptionSizes}
         multiLineText={descriptionText}
+        f={descriptionSizes}
         color={descriptionColor}
+        bold={descriptionBold}
         pb={descriptionPb}
       />
     </Banner>
@@ -71,18 +71,18 @@ Hero.propTypes = {
   /** Background Image */
   backgroundImage: PropTypes.string,
 
-  /** padding x axis in array */
-  contentPx: PropTypes.array,
-
   /** content location */
   contentLoc: PropTypes.string,
 
+  /** padding x axis in array */
+  contentPx: PropTypes.array,
+
   /** Title */
   title: PropTypes.shape({
-    /** title size in array */
-    titleSizes: PropTypes.array,
     /** text of title */
     titleText: PropTypes.string,
+    /** title size in array */
+    titleSizes: PropTypes.array,
     /** color of title */
     titleColor: PropTypes.string,
     /** bold for title */
@@ -93,10 +93,10 @@ Hero.propTypes = {
 
   /** Description */
   description: PropTypes.shape({
-    /** text size in array */
-    descriptionSizes: PropTypes.array,
     /** text of description */
     descriptionText: PropTypes.string,
+    /** text size in array */
+    descriptionSizes: PropTypes.array,
     /** color of description */
     descriptionColor: PropTypes.string,
     /** bold for description */
@@ -107,18 +107,19 @@ Hero.propTypes = {
 }
 
 Hero.defaultProps = {
-  contentLoc: 'center',
+  backgroundImage: 'http://via.placeholder.com/1080x900',
+  contentLoc: 'left',
   contentPx: [1, 3, 4, 4],
   title: {
-    titleSizes: ['7em'],
     titleText: 'hello\nfun\nrun',
+    titleSizes: ['7em'],
     titleColor: 'white',
     titleBold: 'bold',
     titlePb: [10, 3, 3],
   },
   description: {
-    descriptionSizes: [2, 2, 3, 3],
     descriptionText: 'this world blabhalbhlahblahblahblabhla\ndljfasldjflsakfja\n',
+    descriptionSizes: [2, 2, 3, 3],
     descriptionColor: 'white',
     descriptionBold: 'thin',
     descriptionPb: [10],
