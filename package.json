@@ -1,6 +1,6 @@
 {
   "name": "sicario-build-template",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "main": "./lib/index.js",
   "engines": {
     "node": ">=4.0.0"
