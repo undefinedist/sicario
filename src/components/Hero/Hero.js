@@ -35,6 +35,7 @@ function Hero({
   backgroundImage,
   contentPx,
   contentLoc,
+  bold,
   title: {titleSizes, titleText, titleColor},
   description: {descriptionSizes, descriptionText, descriptionColor},
 }) {
@@ -43,8 +44,9 @@ function Hero({
       style={{...getLocation(contentLoc), minHeight: '100vh'}}
       backgroundImage={backgroundImage}
       px={contentPx}>
-      <MultiLineText f={titleSizes} multiLineText={titleText} color={titleColor} />
+      <MultiLineText bold={bold} f={titleSizes} multiLineText={titleText} color={titleColor} />
       <MultiLineText
+        bold={bold}
         f={descriptionSizes}
         multiLineText={descriptionText}
         color={descriptionColor}
@@ -62,6 +64,9 @@ Hero.propTypes = {
 
   /** content location */
   contentLoc: PropTypes.string,
+
+  /** bold for title and description */
+  bold: PropTypes.bool,
 
   /** Title */
   title: PropTypes.shape({
@@ -87,6 +92,7 @@ Hero.propTypes = {
 Hero.defaultProps = {
   contentLoc: 'center',
   contentPx: [1, 3, 4, 4],
+  bold: true,
   title: {
     titleSizes: [4, 5, 6, 7],
     titleText: 'hello',
