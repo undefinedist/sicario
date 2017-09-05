@@ -35,21 +35,33 @@ function Hero({
   backgroundImage,
   contentPx,
   contentLoc,
-  bold,
-  title: {titleSizes, titleText, titleColor},
-  description: {descriptionSizes, descriptionText, descriptionColor},
+  title: {titleSizes, titleText, titleColor, titleBold, titlePy},
+  description: {
+    descriptionSizes,
+    descriptionText,
+    descriptionColor,
+    descriptionBold,
+    descriptionPy,
+  },
 }) {
   return (
     <Banner
       style={{...getLocation(contentLoc), minHeight: '100vh'}}
       backgroundImage={backgroundImage}
       px={contentPx}>
-      <MultiLineText bold={bold} f={titleSizes} multiLineText={titleText} color={titleColor} />
       <MultiLineText
-        bold={bold}
+        bold={titleBold}
+        f={titleSizes}
+        multiLineText={titleText}
+        color={titleColor}
+        py={tiltePy}
+      />
+      <MultiLineText
+        bold={descriptionBold}
         f={descriptionSizes}
         multiLineText={descriptionText}
         color={descriptionColor}
+        py={descriptionPy}
       />
     </Banner>
   )
@@ -65,9 +77,6 @@ Hero.propTypes = {
   /** content location */
   contentLoc: PropTypes.string,
 
-  /** bold for title and description */
-  bold: PropTypes.bool,
-
   /** Title */
   title: PropTypes.shape({
     /** title size in array */
@@ -76,6 +85,10 @@ Hero.propTypes = {
     titleText: PropTypes.string,
     /** color of title */
     titleColor: PropTypes.string,
+    /** bold for title */
+    titleBold: PropTypes.bool,
+    /** py for title */
+    titlePy: PropTypes.array,
   }),
 
   /** Description */
@@ -86,22 +99,29 @@ Hero.propTypes = {
     descriptionText: PropTypes.string,
     /** color of description */
     descriptionColor: PropTypes.string,
+    /** bold for description */
+    descriptionBold: PropTypes.bool,
+    /** py for description */
+    descriptionPy: PropTypes.array,
   }),
 }
 
 Hero.defaultProps = {
   contentLoc: 'center',
   contentPx: [1, 3, 4, 4],
-  bold: true,
   title: {
     titleSizes: [4, 5, 6, 7],
     titleText: 'hello',
     tilteColor: 'black',
+    titleBold: true,
+    titlePy: [3, 4, 5, 6],
   },
   description: {
     descriptionSizes: [2, 2, 3, 3],
     descriptionText: 'world',
     descriptionColor: 'black',
+    descriptionBold: true,
+    descriptionPy: [3, 4, 5, 6],
   },
 }
 
