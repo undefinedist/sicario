@@ -86,7 +86,7 @@ Hero.propTypes = {
     /** color of title */
     titleColor: PropTypes.string,
     /** bold for title */
-    titleBold: PropTypes.bool,
+    titleBold: PropTypes.string,
     /** pb for title */
     titlePb: PropTypes.array,
   }),
@@ -100,6 +100,8 @@ Hero.propTypes = {
     /** color of description */
     descriptionColor: PropTypes.string,
     /** bold for description */
+    descriptionBold: PropTypes.string,
+    /** pb for description */
     descriptionPb: PropTypes.array,
   }),
 }
@@ -111,14 +113,14 @@ Hero.defaultProps = {
     titleSizes: ['7em'],
     titleText: 'hello\nfun\nrun',
     titleColor: 'white',
-    titleBold: true,
+    titleBold: 'bold',
     titlePb: [10, 3, 3],
   },
   description: {
     descriptionSizes: [2, 2, 3, 3],
     descriptionText: 'this world blabhalbhlahblahblahblabhla\ndljfasldjflsakfja\n',
     descriptionColor: 'white',
-    descriptionBold: false,
+    descriptionBold: 'thin',
     descriptionPb: [10],
   },
 }
