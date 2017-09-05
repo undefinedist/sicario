@@ -35,13 +35,13 @@ function Hero({
   backgroundImage,
   contentPx,
   contentLoc,
-  title: {titleSizes, titleText, titleColor, titleBold, titlePy},
+  title: {titleSizes, titleText, titleColor, titleBold, titlePb},
   description: {
     descriptionSizes,
     descriptionText,
     descriptionColor,
     descriptionBold,
-    descriptionPy,
+    descriptionPb,
   },
 }) {
   return (
@@ -54,14 +54,14 @@ function Hero({
         f={titleSizes}
         multiLineText={titleText}
         color={titleColor}
-        py={titlePy}
+        pb={titlePb}
       />
       <MultiLineText
         bold={descriptionBold}
         f={descriptionSizes}
         multiLineText={descriptionText}
         color={descriptionColor}
-        py={descriptionPy}
+        pb={descriptionPb}
       />
     </Banner>
   )
@@ -87,8 +87,8 @@ Hero.propTypes = {
     titleColor: PropTypes.string,
     /** bold for title */
     titleBold: PropTypes.bool,
-    /** py for title */
-    titlePy: PropTypes.array,
+    /** pb for title */
+    titlePb: PropTypes.array,
   }),
 
   /** Description */
@@ -100,9 +100,7 @@ Hero.propTypes = {
     /** color of description */
     descriptionColor: PropTypes.string,
     /** bold for description */
-    descriptionBold: PropTypes.bool,
-    /** py for description */
-    descriptionPy: PropTypes.array,
+    descriptionPb: PropTypes.array,
   }),
 }
 
@@ -110,18 +108,18 @@ Hero.defaultProps = {
   contentLoc: 'center',
   contentPx: [1, 3, 4, 4],
   title: {
-    titleSizes: [4, 5, 6, 7],
-    titleText: 'hello',
-    tilteColor: 'black',
+    titleSizes: ['7em'],
+    titleText: 'hello\nfun\nrun',
+    titleColor: 'white',
     titleBold: true,
-    titlePy: [3, 4, 5, 6],
+    titlePb: [10, 3, 3],
   },
   description: {
     descriptionSizes: [2, 2, 3, 3],
-    descriptionText: 'world',
-    descriptionColor: 'black',
-    descriptionBold: true,
-    descriptionPy: [3, 4, 5, 6],
+    descriptionText: 'this world blabhalbhlahblahblahblabhla\ndljfasldjflsakfja\n',
+    descriptionColor: 'white',
+    descriptionBold: false,
+    descriptionPb: [10],
   },
 }
 

@@ -15,7 +15,6 @@ const Props = ({props}) => {
       </thead>
       <tbody>
         {Object.keys(props).map(key => {
-          console.log('props key', props[key])
           return (
             <tr key={key}>
               <td>{key}</td>
