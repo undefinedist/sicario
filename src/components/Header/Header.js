@@ -8,7 +8,6 @@ import Color from 'color'
 class Header extends React.Component {
   state = {
     headerBg: '',
-    count: 0,
   }
   handleBgColor = () => {
     if (this.props.bg !== '') {
