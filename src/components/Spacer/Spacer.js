@@ -4,7 +4,7 @@ import {Divider} from 'rebass'
 
 /** Spacer - make space between components */
 function Spacer({mys}) {
-  return <Divider w={1} my={mys} color="transparent" />
+  return <Divider style={{backgroundColor: 'transparent'}} w={1} my={mys} color="transparent" />
 }
 
 Spacer.propTypes = {
