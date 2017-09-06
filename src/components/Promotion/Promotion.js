@@ -91,15 +91,15 @@ Promotion.defaultProps = {
     titleSizes: [6],
     titleColor: '#ea9a4c',
     titleBold: 'normal',
-    titleMys: [6],
+    titleMys: [1],
     titlePbs: [0],
   },
   description: {
     descriptionSizes: [2],
     descriptionColor: '#8e8e8e',
     descriptionBold: 'normal',
-    descriptionMys: [3],
-    descriptionPbs: [3],
+    descriptionMys: [1],
+    descriptionPbs: [1],
   },
 }
 

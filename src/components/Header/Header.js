@@ -7,10 +7,11 @@ import Color from 'color'
 /** Fixed Header Component */
 class Header extends React.Component {
   state = {
-    headerBg: '',
+    headerBg: 'transparent',
   }
+
   handleBgColor = () => {
-    if (this.props.bg !== '') {
+    if (this.props.bg !== 'transparent') {
       const windowHeight = window.innerHeight - 80
       let headerBg = Color(this.props.bg)
         .alpha(window.scrollY / windowHeight)
@@ -18,26 +19,23 @@ class Header extends React.Component {
       this.setState({headerBg: headerBg})
     }
   }
+
   componentWillMount() {
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', this.handleBgColor)
     }
   }
+
   render() {
-    const {
-      btn: {btnFontSize, btnText, btnColor, btnBg, btnPx, btnPy},
-      logo: {logoUrl, logoPx, logoPy},
-    } = this.props
+    const {logoSrc, logoWrapper, btnText, btnWrapper, btn} = this.props
     return (
       <Fixed bg={this.state.headerBg} z={100} left top right>
         <Flex justify="space-between" align="center">
-          <Box px={logoPx} py={logoPy}>
-            <Logo src={logoUrl} />
+          <Box {...logoWrapper}>
+            <Logo src={logoSrc} />
           </Box>
-          <Box px={btnPx} py={btnPy}>
-            <ButtonCircle px={5} f={btnFontSize} color={btnColor} bg={btnBg}>
-              {btnText}
-            </ButtonCircle>
+          <Box {...btnWrapper}>
+            <ButtonCircle {...btn}>{btnText}</ButtonCircle>
           </Box>
         </Flex>
       </Fixed>
@@ -46,55 +44,48 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  /** Background Color */
-  bg: PropTypes.string,
+  /** Background Color if you want transparent , "transparent" */
+  bg: PropTypes.string.isRequired,
 
-  /** button */
-  btn: PropTypes.shape({
-    /** button font size */
-    btnFontSize: PropTypes.number,
-
-    /** button text */
-    btnText: PropTypes.string,
-
-    /** button text color */
-    btnColor: PropTypes.string,
-
-    /** button background color */
-    btnBg: PropTypes.string,
-
-    /** btn px */
-    btnPx: PropTypes.array,
-
-    /** btn py */
-    btnPy: PropTypes.array,
+  /** Logo source url */
+  logoSrc: PropTypes.string.isRequired,
+  /** px, py */
+  logoWrapper: PropTypes.shape({
+    px: PropTypes.array,
+    py: PropTypes.array,
   }),
-  /** Logo */
-  logo: PropTypes.shape({
-    /** logo url */
-    logoUrl: PropTypes.string,
-    /** logo px */
-    logoPx: PropTypes.array,
 
-    /** logo py */
-    logoPy: PropTypes.array,
+  /** Button Text */
+  btnText: PropTypes.string.isRequired,
+  /** px, py */
+  btnWrapper: PropTypes.shape({
+    px: PropTypes.array,
+    py: PropTypes.array,
+  }),
+
+  /** font-size, color, bg, px  */
+  btn: PropTypes.shape({
+    fontSize: PropTypes.array,
+    color: PropTypes.string,
+    bg: PropTypes.string,
+    px: PropTypes.array,
   }),
 }
 
 Header.defaultProps = {
-  bg: '',
-  btn: {
-    btnFontSize: 2,
-    btnText: '예약하기',
-    btnColor: 'white',
-    btnBg: 'green',
-    btnPx: [3, 3, 3, 7],
-    btnPy: [1, 1, 1, 1],
+  logoWrapper: {
+    px: [3, 3, 3, 7],
+    py: [2, 2, 2, 2],
   },
-  logo: {
-    logoUrl: 'http://via.placeholder.com/150x36',
-    logoPx: [3, 3, 3, 7],
-    logoPy: [2, 2, 2, 2],
+  btnWrapper: {
+    px: [3, 3, 3, 7],
+    py: [1, 1, 1, 1],
+  },
+  btn: {
+    fontSize: [1],
+    color: 'white',
+    bg: 'green',
+    px: [5],
   },
 }
 
