@@ -13,6 +13,7 @@ class Header extends React.Component {
   handleBgColor = () => {
     if (this.props.bg !== 'transparent') {
       const windowHeight = window.innerHeight - 80
+      // can't use theme color system
       let headerBg = Color(this.props.bg)
         .alpha(window.scrollY / windowHeight)
         .string()
