@@ -50,7 +50,7 @@ Hero.defaultProps = {
   backgroundImage: 'http://via.placeholder.com/1080x900',
   contentWrapper: {
     alignItems: 'flex-start',
-    px: [1, 3, 4, 4],
+    px: [3, 3, 100, 300],
   },
   title: {
     fontSize: ['7em'],
