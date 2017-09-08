@@ -5,8 +5,8 @@ import MultiLineText from '../MultiLineText'
 
 /** Hero */
 function Hero(props) {
-  const {backgroundImage, heroWrapper, titleText, title, descriptionText, description} = props
-  const {alignItems, px} = heroWrapper
+  const {backgroundImage, wrapper, titleText, title, descriptionText, description} = props
+  const {alignItems, px} = wrapper
   return (
     <Banner backgroundImage={backgroundImage} style={{alignItems}} px={px}>
       <MultiLineText multiLineText={titleText} {...title} />
@@ -19,7 +19,7 @@ Hero.propTypes = {
   /** Background Image */
   backgroundImage: PropTypes.string.isRequired,
   /** alignItems(flex-start, center, flex-end), px*/
-  heroWrapper: PropTypes.shape({
+  wrapper: PropTypes.shape({
     /** conent location */
     alignItems: PropTypes.oneOf(['flex-start', 'center', 'flex-end']),
     px: PropTypes.array,
@@ -48,7 +48,7 @@ Hero.propTypes = {
 
 Hero.defaultProps = {
   backgroundImage: 'http://via.placeholder.com/1080x900',
-  heroWrapper: {
+  wrapper: {
     alignItems: 'flex-start',
     px: [3, 3, 100, 300],
   },
