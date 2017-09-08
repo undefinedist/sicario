@@ -5,7 +5,14 @@ import styles from 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 function Gallery({images}) {
   return (
-    <Carousel axis="horizontal" showArrows dynamicHeight>
+    <Carousel
+      axis="horizontal"
+      showArrows
+      showStatus={false}
+      showThumbs={false}
+      infiniteLoop
+      interval={3500}
+      dynamicHeight>
       {images.map(image => (
         <div>
           <img src={image} />
