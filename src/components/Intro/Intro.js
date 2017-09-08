@@ -4,12 +4,9 @@ import {Flex, Box} from 'rebass'
 import MultiLineText from '../MultiLineText'
 
 /** Intro */
-function Intro({contentWrapper, titleText, title, descriptionText, description}) {
+function Intro({introWrapper, titleText, title, descriptionText, description}) {
   return (
-    <Flex
-      {...contentWrapper}
-      style={{margin: '0 auto', textAlign: 'center', maxWidth: '850px'}}
-      wrap>
+    <Flex {...introWrapper} style={{margin: '0 auto', textAlign: 'center', maxWidth: '850px'}} wrap>
       <Box width={[1]} my={title.my}>
         <MultiLineText multiLineText={titleText} {...title} />
       </Box>
@@ -22,7 +19,7 @@ function Intro({contentWrapper, titleText, title, descriptionText, description})
 
 Intro.propTypes = {
   /** px */
-  contentWrapper: {
+  introWrapper: {
     px: PropTypes.array,
   },
   /** text of title */
@@ -49,7 +46,9 @@ Intro.propTypes = {
 }
 
 Intro.defaultProps = {
-  contentPx: [1, 3, 4, 4],
+  introWrapper: {
+    px: [1, 3, 4, 4],
+  },
   title: {
     fontSize: [6],
     color: '#ea9a4c',
