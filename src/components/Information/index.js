@@ -1,1 +1,1 @@
-export {default} from './Infromation'
+export {default} from './Information'
