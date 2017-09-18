@@ -1,0 +1,101 @@
+{
+  "name": "undefinedist/sicario",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "",
+  "branch": "gh-pages",
+  "style": {
+    "name": "Future",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/BannerHeader",
+      "article": "article/BasicArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "\"Avenir Next\", Helvetica, sans-serif",
+    "heading": {
+      "fontWeight": 500,
+      "textTransform": "uppercase",
+      "letterSpacing": "0.2em"
+    },
+    "alternativeText": {
+      "textTransform": "uppercase",
+      "fontWeight": 400,
+      "letterSpacing": "0.2em",
+      "opacity": 0.75
+    },
+    "colors": {
+      "text": "#333",
+      "background": "#fff",
+      "primary": "#666",
+      "secondary": "#888",
+      "highlight": "#1f80ff",
+      "muted": "#f6f6f6",
+      "border": "#eee"
+    },
+    "layout": {
+      "centered": true,
+      "maxWidth": 1024,
+      "bannerHeight": "80vh"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://undefinedist.github.io/sicario/",
+          "text": "Home"
+        },
+        {
+          "href": "https://github.com/undefinedist/sicario",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/sicario-build-template",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "sicario",
+      "subhead": "Reusable Components for undefinedist.",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "sicario: Reusable Components for undefinedist.",
+          "url": "https://undefinedist.github.io/sicario/"
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "undefinedist",
+          "repo": "sicario"
+        }
+      ],
+      "text": "v0.9.11"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "<h1>Reusable component for undefinedist</h1>\n<p>base on pluralsight tutorial and styled-components with rebass</p>\n<h2>Install</h2>\n<pre>yarn <span class=\"hljs-keyword\">install</span> sicario</pre><h1>Docs</h1>\n<p><a href=\"https://undefinedist.github.io/sicario/\">Component documation</a></p>\n<h2>generateComponentData.js</h2>\n<h3>fs and path</h3>\n<p>node&#xC5D0;&#xC11C; &#xB538;&#xB824; &#xC624;&#xB294;&#xAC70; file system&#xACFC; path&#xC5D0; &#xC0AC;&#xC6A9;</p>\n<h3>chalk</h3>\n<p>command line out &#xC0C9;&#xAE54; &#xC785;&#xD788;&#xAE30;</p>\n<h2>react-docgen</h2>\n<p>coponenet&#xB97C; &#xBCF4;&#xACE0; metadata&#xB97C; &#xBE7C;&#xC624;&#xB294; &#xC791;&#xC5C5;&#xC744; &#xD558;&#xB294; library</p>\n<h2>chokidar</h2>\n<p>watch file run function in a cross platform way</p>\n<ol>\n<li>example file path, component path &#xADF8;&#xB9AC;&#xACE0; &#xACB0;&#xACFC;&#xBB3C; &#xB370;&#xC774;&#xD130; path&#xC124;&#xC815;&#xD574;&#xB193;&#xAE30;</li>\n<li>enableWatchMode -&gt; chokidar&#xB85C; example, component path&#xAC00; &#xBC14;&#xB00C;&#xB294;&#xC9C0;&#xBCF4;&#xACE0;\ngenerate&#xD558;&#xB294;&#xAC70;&#xC784;.</li>\n<li>generate -&gt; component&#xC544;&#xB798;&#xC5D0; &#xC788;&#xB294; directories&#xC744; &#xAC00;&#xC838;&#xC624;&#xACE0; getComponentData&#xB85C;\n&#xB370;&#xC774;&#xD130;&#xB97C; &#xAC00;&#xC838;&#xC628;&#xB2E4;.</li>\n<li>getComponentData -&gt; file&#xC77D;&#xACE0; content&#xB97C; &#xAC00;&#xC838;&#xC624;&#xACE0; react-docgen&#xC758; parse&#xB85C;\nmetadata &#xAC00;&#xC838;&#xC628;&#xB2E4;. getExampleData&#xB85C; example&#xB370;&#xC774;&#xD130;&#xB3C4; &#xAC00;&#xC838;&#xC628;&#xB2E4;.</li>\n<li>getExampleData -&gt; &#xC704;&#xC5D0;&#xAEBC;&#xB791; &#xBE44;&#xC2B7;&#xD558;&#xB2E4;.</li>\n</ol>\n<h2>npm-run-all</h2>\n<h2>highlight.js</h2>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/undefinedist/sicario",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/undefinedist",
+          "text": "undefinedist"
+        }
+      ]
+    }
+  ]
+}
